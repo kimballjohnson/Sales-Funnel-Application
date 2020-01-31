@@ -16,19 +16,19 @@ class prospect:
         call = datetime.strptime(call_time, "%Y-%m-%d")
         self.c.update( {call : result} )
 
-"""p_1 = prospect('matt', 'z', '1234567890', 'email@email.com', 'com')
-p_1.call("2020-01-29", 'set')
-p_1.call("2020-01-10", 'set2')
-print(p_1.__dict__)
-print(p_1.c)"""
+pd.DataFrame(d.items())
+x = pd.DataFrame(d.items(), columns=['Date', 'DateValue'])
+plt.scatter(x.Date, x.DateValue)
+plt.show()
+# This code block creates a way of converting the class dictionary object into a Pandas DataFrame for analysis.  THis can be vastly expanded.
+# I can derive a massive amount of insight from this point, the harder part is acquiring and storing data, and learning SQLAlchemy to easily work with it.
+
 
 # Ideas:
 #   Figure out how to store your data locally and have the class methods play nice with reading and writing externally
-#   Develop scraper which pulls prospect info from google, zillow, etc and uses the calss to compile call lists
-#   Correlate call time to results, find best days, times to call
+#       This is resolved by incorporating an SQLAlchemy framework into an SQL database and using Object Reference Mapping to dynamically interact between Python and the database
 #   Develop resolution of commercial customer correlations to industry/sector
 #   Set alerts for prospects who need follow-up
-#   Track sales results for various demographics of customers
 #   Find way to integrate reports from company database to make activity tracking easier
 #   Develop API to send and recieve data updates easily
-#   Create checks on data to alert if data is corrupted or provider changed data format, requiring update
+#   Create checks on data to alert if data is corrupted or provider changed data format, requiring update, like unit testing or data validation
