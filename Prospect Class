@@ -1,0 +1,34 @@
+from datetime import datetime
+
+class prospect:
+    def __init__(self, first, last, phone, email, type):
+        self.first = first
+        self.last = last
+        self.phone = phone
+        self.email = email
+        self.type = type # My company solicits commercial and residential customers, so this differentiates those types.
+        self.c = {} # Record of attempted contacts with the prospect and the result.
+
+    def fullname(self):
+        return '{} {}'.format(self.first, self.last)
+
+    def call(self, call_time, result):
+        call = datetime.strptime(call_time, "%Y-%m-%d")
+        self.c.update( {call : result} )
+
+"""p_1 = prospect('matt', 'z', '1234567890', 'email@email.com', 'com')
+p_1.call("2020-01-29", 'set')
+p_1.call("2020-01-10", 'set2')
+print(p_1.__dict__)
+print(p_1.c)"""
+
+# Ideas:
+#   Figure out how to store your data locally and have the class methods play nice with reading and writing externally
+#   Develop scraper which pulls prospect info from google, zillow, etc and uses the calss to compile call lists
+#   Correlate call time to results, find best days, times to call
+#   Develop resolution of commercial customer correlations to industry/sector
+#   Set alerts for prospects who need follow-up
+#   Track sales results for various demographics of customers
+#   Find way to integrate reports from company database to make activity tracking easier
+#   Develop API to send and recieve data updates easily
+#   Create checks on data to alert if data is corrupted or provider changed data format, requiring update
